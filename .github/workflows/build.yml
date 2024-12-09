@@ -21,7 +21,7 @@ jobs:
           target: Android64
           
         # - name: Windows
-          os: windows-latest
+        #   os: windows-latest
           
         # - name: macOS
         #   os: macos-latest
