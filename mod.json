@@ -1,0 +1,111 @@
+{
+	"geode": "4.0.1",
+	"gd": {
+		"mac": "2.2074",
+		"android": "2.2074"
+	},
+	"version": "v1.1.8",
+	"early-load": false,
+	"tags": [
+		"gameplay", "performance", "enhancement"
+	],
+	"settings": {
+	  "functionality": {
+			"name": "Functionality",
+			"type": "title"
+		},
+	  "late-input-cutoff": {
+			"name": "Handle Late Inputs",
+			"type": "bool",
+			"default": false,
+			"description": "When this option is disabled, inputs that are determined to have happened <cl>after the current frame</c> are queued to run at <cy>the start of the next frame</c>, regardless of when the input has happened. Enabling this may <cg>improve accuracy</c> in situations where the ticks per frame is inconsistent (such as lag or 144 fps) but at <cr>the cost of consistency</c> (stuck inputs)."
+    },
+		"thread-priority": {
+			"name": "Thread Priority",
+			"description": "Whether to automatically set CBF's thread priority to the highest available.",
+			"type": "bool",
+			"default": true,
+			"requires-restart": true
+		},
+		"mouse-fix": {
+			"name": "Reduce Mouse Lag",
+			"description": "Reduce lag when using high polling rate mice.\nRequires CBF to be enabled.\nExperimental, may break things like Mega Hack while unpaused in levels.",
+			"type": "bool",
+			"default": false
+		},
+		"physics-bypass": {
+			"name": "Physics Bypass",
+			"type": "title"
+		},
+		"input-offset-rand": {
+			"name": "Input Offset +/-",
+			"description": "This is the same as the <cl>Input Offset</c> option, but with a <co>randomized offset</c>. Enjoy!",
+			"type": "int",
+			"default": 0,
+			"min": 0,
+			"max": 1000
+		},
+		"input-offset": {
+			"name": "Input Offset (ms)",
+			"description": "Offsets all inputs by the selected time in milliseconds. This option will not click before frames. The <cl>Handle Late Inputs</c> may be useful for positive offsets.",
+			"type": "int",
+			"default": 0,
+			"min": -1000,
+			"max": 1000
+		},
+		"single-threaded": {
+			"name": "Run Single Threaded (req. restart)",
+			"description": "Runs the game on a single thread, interweaving input and rendering. This has significantly reduced performance, but may be more stable in some cases. It will also force the tps bypass at all times. tps bypass will be limited to the display refresh rate if this option and VSync are enabled. Most similar to the traditional draw divide.",
+			"type": "bool",
+			"default": false,
+			"platforms": ["android"]
+		},
+		"bypass-mode": {
+			"name": "Physics Bypass Mode",
+			"description": "2.2 mode means as few collision checks per frame as possible (with a minimum of 240 checks per second).\n\n2.1 mode means 4 collision checks per frame at 60fps or above",
+			"type": "string",
+			"one-of": ["2.2", "2.1"],
+			"default": "2.2"
+		},
+		"actual-delta": {
+			"name": "Enable Physics Bypass",
+			"description": "Reduces stuttering on some FPS values. Active even if \"Disable CBF\" is checked.\n\nTHIS WILL ALTER PHYSICS AND MAY BREAK SOME LEVELS! DON'T USE THIS IF YOUR LIST/LEADERBOARD BANS PHYSICS BYPASS!",
+			"type": "bool",
+			"default": false
+		},
+				"loop-style": {
+			"name": "Input Loop Type",
+			"description": "Determines the style of <cf>input loop</c> in use. This is an <cy>advanced option</c>, please avoid changing it unless you know what you are doing!\n<cc>Auto</c> selects the <cg>best choice</c> of loop from your setup. <co>Wait</c> will hold until a new input is received, which has increased precision and performance over <cf>Poll</c>. Using the wait option will also <cr>globally disable</c> controller support.",
+			"type": "string",
+			"one-of": ["auto", "poll", "wait"],
+			"default": "auto",
+			"platforms": ["android"]
+		},
+				"input-rate": {
+			"name": "Alternative Polling Rate",
+			"description": "Determines the <cc>amount of times per second</c> that inputs are read, which increases <cg>precision</c> at the cost of some <co>performance</c>. Extremely high values <cr>have little use</c> unless you are using a physics bypass. Has no effect unless the game is in the <cf>polling loop</c>.",
+			"type": "int",
+			"default": 720,
+			"min": 3,
+			"max": 2500,
+			"control": {
+				"slider": false
+			},
+			"platforms": ["android"]
+		}
+	},
+	"id": "nightmoonGD.click_between_frames",
+	"name": "Click between frames",
+	"developer": "nightmoonGD",
+	"description": "Click Between Frames for android tracks your clicks between frames and helps make playing a little easier."
+		}
+	],
+	"incompatibilities": [
+		{
+			"id": "nytelyte.wave_trail_drag_fix",
+			"importance": "conflicting",
+			"version": "*"
+		}
+	],
+	"repository": "https://github.com/nightmoonv/Click-Between-Frames-Android"
+}
