@@ -13,11 +13,6 @@
 
 Disable Any type of tps bypass when using this mod, because it doesn't make sense.
 
-
-
-The mod comes with its own version of Physics Bypass in the mod options. Please note that not all lists or leaderboards that allow click beeletween frames will consider it legitimate!
-
-
 original Icon by alex/sincos.Remake by nightmoonv
 
 Ported to android by nightmoonv
