@@ -1,0 +1,14 @@
+{
+	"geode": "4.0.1",
+	"gd": {
+		"android": "2.2074"
+	},
+	"version": "v1.0.1", 
+	"id": "NightmoonGD.Click_between_frames",
+	"name": "Click between frames",
+	"developer": "NightmoonGD",
+	"description": "Click Between Frames for android tracks your clicks between frames and helps make playing a little easier, Dont Use any Tps bypass like click on steps or prism menu tps bypass.",
+	"Repository": {
+		"source": "https://github.com/nightmoonv/Click-Between-Frames-Android"
+	}
+}
