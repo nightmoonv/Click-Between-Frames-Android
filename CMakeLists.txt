@@ -37,4 +37,3 @@ foreach(ABI IN LISTS ANDROID_ABIS)
     target_link_libraries(Nightmoonclickbetweenframes_${ABI} log android)
 endforeach()
 
-
