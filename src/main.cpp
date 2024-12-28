@@ -1,36 +1,53 @@
 #include <jni.h>
 #include "input.hpp"
 #include <android/log.h>
+#include <thread>
+#include <atomic>
+#include <chrono>
 
-ClickState clickState = {false, 0, std::chrono::high_resolution_clock::now()};
+using namespace std::chrono;
 
-void processUserInput() {
-    // Aquí verificaríamos si el jugador está clickeando
-    // Para el ejemplo, estamos asumiendo que `isClicking` se detecta a través de eventos de entrada reales
-    // Puedes reemplazar esta lógica con la detección de eventos del juego de Geometry Dash
+// Estado del clic
+ClickState clickState = {false, 0, high_resolution_clock::now()};
+std::atomic<bool> running(true);
 
-    // Aquí estaríamos detectando si el jugador está clickeando
-    clickState.isClicking = true;  // Simula que está haciendo clic (esto depende de los eventos del juego)
+// Proceso de entrada con polling optimizado
+void inputPollingThread() {
+    while (running) {
+        // Leer el estado actual del clic
+        clickState.isClicking = true; // Simula un clic activo (debe adaptarse a los eventos reales)
 
-    // Llamamos a la función que maneja los clics
-    handleClick(clickState);
+        // Procesar el clic
+        handleClick(clickState);
 
-    // Reseteamos el contador de clics si el jugador deja de hacer spam (esto depende de las condiciones)
-    if (clickState.clickCount > 12) {
-        resetClickState(clickState);
+        // Resetear el estado si el conteo es muy alto
+        if (clickState.clickCount > 12) {
+            resetClickState(clickState);
+        }
+
+        // Esperar 1 ms para lograr un polling rate de 1000 Hz
+        std::this_thread::sleep_for(milliseconds(1));
     }
 }
 
-// Esta función es llamada por el juego para empezar el mod
+// Inicializar el mod
 extern "C" JNIEXPORT void JNICALL
 Java_com_yourpackage_GameMod_initializeMod(JNIEnv *env, jobject thiz) {
-    // Configuraciones iniciales, si es necesario
     LOGD("Mod de Geometry Dash iniciado.");
+
+    // Crear un hilo separado para el polling
+    std::thread(inputPollingThread).detach();
 }
 
-// Esta función es llamada cada fotograma para procesar la entrada
+// Procesar fotogramas (mantiene el mod activo)
 extern "C" JNIEXPORT void JNICALL
 Java_com_yourpackage_GameMod_processFrame(JNIEnv *env, jobject thiz) {
-    // Llamamos a la función que maneja la entrada del jugador
-    processUserInput();
+    // No se necesita procesamiento adicional aquí; todo ocurre en el hilo separado
+}
+
+// Finalizar el mod al salir
+extern "C" JNIEXPORT void JNICALL
+Java_com_yourpackage_GameMod_terminateMod(JNIEnv *env, jobject thiz) {
+    running = false; // Detener el hilo de polling
+    LOGD("Mod terminado.");
 }
