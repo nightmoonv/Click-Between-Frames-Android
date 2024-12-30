@@ -1,0 +1,5 @@
+# ninja log v6
+31	2572	7571105741560929	CMakeFiles/Nightmoonclickbetweenframes_arm64-v8a.dir/src/main.cpp.o	bf10e8d48bbb53e7
+7	2612	7571105741560929	CMakeFiles/Nightmoonclickbetweenframes_armeabi-v7a.dir/src/main.cpp.o	7bcd9dc0db1bcf51
+2598	2723	7571105767318507	libs/arm64-v8a/libNightmoonclickbetweenframes.so	884da9ca1ee44fe5
+2612	2732	7571105767458391	libs/armeabi-v7a/libNightmoonclickbetweenframes.so	b20a8128b90b6083

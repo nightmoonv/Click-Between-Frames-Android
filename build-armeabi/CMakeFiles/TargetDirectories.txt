@@ -1,0 +1,4 @@
+C:/MyProject/build-armeabi/CMakeFiles/Nightmoonclickbetweenframes_armeabi-v7a.dir
+C:/MyProject/build-armeabi/CMakeFiles/Nightmoonclickbetweenframes_arm64-v8a.dir
+C:/MyProject/build-armeabi/CMakeFiles/edit_cache.dir
+C:/MyProject/build-armeabi/CMakeFiles/rebuild_cache.dir
