@@ -1,14 +1,74 @@
 {
-	"geode": "4.0.1",
+	"geode": "4.0.0",
 	"gd": {
 		"android": "2.2074"
 	},
-	"version": "v1.0.2", 
+	"version": "v1.0.4",
 	"id": "NightmoonGD.Click_between_frames",
-	"name": "Click between frames",
+	"name": "Click Between Frames",
 	"developer": "NightmoonGD",
 	"description": "Click Between Frames for android tracks your clicks between frames and helps make playing a little easier, Dont Use any Tps bypass like click on steps or prism menu tps bypass.",
-	"Repository": {
-		"source": "https://github.com/nightmoonv/Click-Between-Frames-Android"
+	"dependencies": [
+		{
+			"id": "geode.custom-keybinds",
+			"version": ">=v1.10.0",
+			"importance": "required"
+		}
+	],
+	"incompatibilities": [
+		{
+			"id": "nytelyte.wave_trail_drag_fix",
+			"importance": "conflicting",
+			"version": "*"
+		}
+	],
+	"tags": [
+		"performance",
+		"gameplay",
+		"enhancement"
+	],
+	"settings": {
+		"functionality": {
+			"name": "Functionality",
+			"type": "title"
+		},
+		"soft-toggle": {
+			"name": "DisableCBF",
+			"description": "Disable CBF without needing to restart GD. This option does not disable physics bypass if you have it enabled!",
+			"type": "bool",
+			"default": false
+		},
+		"polling rate": {
+			"name": "Polling Rate (Hz)",
+			"description": "The Polling rate represents the number of updates per second. A higher polling rate means a faster response from the device. Please do not use the polling rate too high on low-end or low-mid-range devices as it can drain your battery faster and overheat your CPU.",
+			"type": "int",
+			"default": 50000,
+			"min": 50000,
+			"max": 1000000,
+			"control": {
+				"slider": true
+			},
+			"platforms": ["android"]
+		},
+		"physics-bypass": {
+			"name": "Physics Bypass",
+			"type": "title"
+		},
+		"actual-delta": {
+			"name": "Enable Physics Bypass",
+			"description": "Reduces stuttering on some FPS values. Active even if \"Disable CBF\" is checked.\n\nTHIS WILL ALTER PHYSICS AND MAY BREAK SOME LEVELS! DON'T USE THIS IF YOUR LIST/LEADERBOARD BANS PHYSICS BYPASS!",
+			"type": "bool",
+			"default": false
+		},
+		"bypass-mode": {
+			"name": "Physics Bypass Mode",
+			"description": "2.2 mode means as few collision checks per frame as possible (with a minimum of 240 checks per second).\n\n2.1 mode means 4 collision checks per frame at 60fps or above",
+			"type": "string",
+			"one-of": ["2.2", "2.1"],
+			"default": "2.2"
+		}
+	},
+	"links": {
+		"source": "https://github.com/theyareonit/Click-Between-Frames"
 	}
 }
