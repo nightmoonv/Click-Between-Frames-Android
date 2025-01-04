@@ -1,5 +1,0 @@
-# ninja log v6
-15	1905	7571107638911735	CMakeFiles/Nightmoonclickbetweenframes_arm64-v8a.dir/src/main.cpp.o	a953fb65119431f2
-7	1944	7571107638824659	CMakeFiles/Nightmoonclickbetweenframes_armeabi-v7a.dir/src/main.cpp.o	8f6770a791d653a6
-1930	2052	7571107657974326	libs/arm64-v8a/libNightmoonclickbetweenframes.so	9c51e8f9c5e9797e
-1944	2057	7571107658116633	libs/armeabi-v7a/libNightmoonclickbetweenframes.so	23ba64fef9d77f59
